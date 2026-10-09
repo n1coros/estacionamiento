@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <title>Estacionamiento</title>
+</head>
+<body>
+<div class="menu">
+    <h1>ESTAC. CONTROL</h1>
+    <a href="/">Inicio</a>
+    <a href="/ingresos">Ingresos</a>
+    <a href="">Salidas</a>
+    <a href="">Vehiculos</a>
+    <a href="">Clientes</a>
+    <a href="">Tarifas</a>
+</div>
+<div class="contenido">
+    <h2>Ingresos</h2>
+
+    <form action="/ingresos" method="POST">
+        <input type="text" name="patente" placeholder="Patente">
+        <select name="tipo">
+    <option>Auto</option>
+    <option>Moto</option>
+    <option>Camioneta</option>
+</select>
+        <input type="text" name="plaza" placeholder="Plaza">
+        <button>Registrar ingreso</button>
+    </form>
+
+    <h3>Ingresos de hoy</h3>
+    <table>
+        <tr>
+        <th>Patente</th>
+        <th>Tipo</th>
+        <th>Plaza</th>
+        <th>Entrada</th>
+        </tr>
+
+    </table>
+</div>
+</body>
+</html>
+
+
