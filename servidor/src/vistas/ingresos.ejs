@@ -9,12 +9,12 @@
 <body>
 <div class="menu">
     <h1>ESTAC. CONTROL</h1>
-    <a href="/">Inicio</a>
+     <a href="/">Inicio</a>
     <a href="/ingresos">Ingresos</a>
-    <a href="">Salidas</a>
-    <a href="">Vehiculos</a>
+    <a href="/salidas">Salidas</a>
+    <a href="/tarifas">Tarifas</a>
     <a href="">Clientes</a>
-    <a href="">Tarifas</a>
+    <a href="/busca">Vehículos</a>
 </div>
 <div class="contenido">
     <h2>Ingresos</h2>
@@ -22,26 +22,50 @@
     <form action="/ingresos" method="POST">
         <input type="text" name="patente" placeholder="Patente">
         <select name="tipo">
-    <option>Auto</option>
-    <option>Moto</option>
-    <option>Camioneta</option>
-</select>
-        <input type="text" name="plaza" placeholder="Plaza">
-        <button>Registrar ingreso</button>
+            <option>Auto</option>
+            <option>Moto</option>
+            <option>Camioneta</option>
+        </select>
+         <select name="plaza">
+            <option>A-01</option>
+            <option>A-02</option>
+            <option>A-03</option>
+            <option>B-01</option>
+            <option>B-02</option>
+            <option>B-03</option>
+            <option>C-01</option>
+            <option>C-02</option>
+            <option>C-03</option>
+        </select>
+         <select name="estado">
+            <option>Disponible</option>
+            <option>Ocupada</option>
+            <option>Mantenimiento</option>
+        </select>
+        <input type="submit" value="Registrar Ingreso">
     </form>
 
     <h3>Ingresos de hoy</h3>
     <table>
-        <tr>
-        <th>Patente</th>
-        <th>Tipo</th>
-        <th>Plaza</th>
-        <th>Entrada</th>
-        </tr>
-
+<tr>
+ <th>Patente</th>
+<th>Tipo</th>
+<th>Plaza</th>
+<th>Estado</th>
+<th>Entrada</th>
+</tr>
+<% ingresos.forEach(i => { %>
+<tr>
+    <td><%= i.patente %></td>
+    <td><%= i.tipo %></td>
+    <td><%= i.plaza %></td>
+    <td><%= i.estado %></td>
+    <td><%= i.fentrada %></td>
+</tr>
+<% }) %>
     </table>
+    <input type="submit" value="Modificar">
+    <input type="submit" value="Eliminar">
 </div>
 </body>
 </html>
-
-

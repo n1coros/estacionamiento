@@ -4,7 +4,6 @@ body {
     background: #f2f2f2;
 }
 
-/* Menú de arriba */
 .menu {
     background: #333;
     padding: 10px 20px;
@@ -27,14 +26,12 @@ body {
     color: gold;
 }
 
-/* Contenido */
 .contenido {
     width: 900px;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Tarjetas */
 .tarjeta {
     display: inline-block;
     width: 200px;
@@ -45,7 +42,6 @@ body {
     border-radius: 6px;
 }
 
-/* Tabla */
 table {
     width: 100%;
     background: white;
@@ -63,7 +59,6 @@ td {
     border-bottom: 1px solid #ccc;
 }
 
-/* Formularios y botones */
 input, select {
     padding: 6px;
     margin: 5px;
