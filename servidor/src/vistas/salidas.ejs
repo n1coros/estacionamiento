@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
     <title>Document</title>
 </head>
 <body>
@@ -15,6 +16,19 @@
     <a href="">Clientes</a>
     <a href="/busca">Vehículos</a>
 </div>
-    
+<div class="contenido">
+
+    <h2>Salidas</h2>
+
+<form action="/salidas" method="POST">
+    <input type="text" name="patente" placeholder="Patente">
+    <select name="metodo">
+        <option value="Efectivo">Efectivo</option>
+        <option value="Tarjeta">Tarjeta</option>
+        <option value="Transferencia">Transferencia</option>
+    </select>
+    <input type="submit" value="Registrar salida">
+    </div>
+</form>
 </body>
 </html>

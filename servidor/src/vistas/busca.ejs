@@ -22,28 +22,62 @@
     <form action="/busca" method="POST">
         <input type="text" name="patente" placeholder="Patente">
         <input type="submit" value="Buscar">
-        <input type="submit" value="Modificar">
-        <input type="submit" value="Eliminar">
     </form>
 
     <h3>Tu ingreso</h3>
         <table>
 <tr>
- <th>Patente</th>
-<th>Tipo</th>
-<th>Plaza</th>
-<th>Estado</th>
-<th>Entrada</th>
+    <th>Patente</th>
+    <th>Tipo</th>
+    <th>Plaza</th>
+    <th>Estado</th>
+    <th>Entrada</th>
+    <th>Acción</th>
 </tr>
-<% busca.forEach(i => { %>
-<tr>
-     <td><%= i.patente %></td>
-    <td><%= i.tipo %></td>
-    <td><%= i.plaza %></td>
-    <td><%= i.estado %></td>
-    <td><%= i.fentrada %></td>
-</tr>
+
+<% busca.forEach(f => { %>
+    <tr>
+    <td><%= f.patente %></td>
+    <td><%= f.tipo %></td>
+    <td><%= f.plaza %></td>
+    <td><%= f.estado %></td>
+    <td><%= f.fentrada %></td>
+    <td>
+    <a href="/borrar/<%= f.patente %>">Eliminar</a>
+    
+    </td>
+    </tr>
 <% }) %>
     </table>
+
+
+    <% if (busca.length) { %>
+<form action="/modificar" method="POST">
+  <input type="hidden" name="patente" value="<%= busca[0].patente %>">
+
+  <select name="tipo">
+    <option>Auto</option>
+    <option>Moto</option>
+    <option>Camioneta</option>
+  </select>
+
+  <select name="plaza">
+    <option>A-01</option>
+    <option>A-02</option>
+    <option>A-03</option>
+    <option>B-01</option>
+    <option>B-02</option>
+    <option>B-03</option>
+    <option>C-01</option>
+    <option>C-02</option>
+    <option>C-03</option>
+  </select>
+
+  <input type="submit" value="Modificar">
+  <a href="/busca">Cancelar</a>
+</form>
+<% } %>
+
+
 </body>
 </html>

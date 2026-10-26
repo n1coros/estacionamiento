@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="menu">
+    <h1>ESTAC. CONTROL</h1>
+     <a href="/">Inicio</a>
+    <a href="/ingresos">Ingresos</a>
+    <a href="/salidas">Salidas</a>
+    <a href="/tarifas">Tarifas</a>
+    <a href="">Clientes</a>
+    <a href="/busca">Vehículos</a>
+</div>
+<div class="contenido">
+    <h2>Consultas</h2>
+
+    <form action="/busca" method="POST">
+        <input type="text" name="patente" placeholder="Patente">
+        <input type="submit" value="Buscar">
+    </form>
+
+    <h3>Tu ingreso</h3>
+        <table>
+<tr>
+    <th>Patente</th>
+    <th>Tipo</th>
+    <th>Plaza</th>
+    <th>Estado</th>
+    <th>Entrada</th>
+    <th>Acción</th>
+</tr>
+
+<% busca.forEach(f => { %>
+    <tr>
+        <td><%= f.patente %></td>
+    <td><%= f.tipo %></td>
+    <td><%= f.plaza %></td>
+        <td><%= f.estado %></td>
+        <td><%= f.fentrada %></td>
+    <td>
+
+        
+    <a href="/modificar/<%= f.plaza %>">Modificar</a>
+    </td>
+    </tr>
+<% }) %>
+    </table>
+</body>
+</html>

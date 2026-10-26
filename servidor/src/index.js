@@ -15,6 +15,7 @@ app.use(express.static(path.join(directorio, 'public')));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+
 import { rmenu } from './rutas/rutamenu.js';
 app.use(rmenu);
 

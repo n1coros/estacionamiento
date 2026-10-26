@@ -12,15 +12,14 @@ export const formingreso = async (req, resp) => {
 }
 
 export const nuevoingreso = async (req, resp) => {
-    const { patente, tipo, plaza, estado } = req.body;
+    const { patente, tipo, plaza } = req.body;
     const bdd = await conectar();
 
-    await bdd.query(
-        "INSERT INTO ticketsregistros (fecha, fentrada, patente, tipo, plaza) VALUES (CURDATE(), CURTIME(), ?, ?, ?)",
-        [patente, tipo, plaza]
-    );
+    let insertar = "INSERT INTO ticketsregistros (fecha, fentrada, patente, tipo, plaza) VALUES (CURDATE(), CURTIME(), '" + patente + "', '" + tipo + "', '" + plaza + "');";
+    await bdd.query(insertar);
 
-    await bdd.query("UPDATE plazas SET estado = ? WHERE codigo = ?", [estado, plaza]);
+    let actualizar = "UPDATE plazas SET estado = 'Ocupada' WHERE codigo = '" + plaza + "';";
+    await bdd.query(actualizar);
 
     resp.redirect('/ingresos');
 }
