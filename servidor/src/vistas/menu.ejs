@@ -30,13 +30,13 @@
     <input type="submit" value="Ver">
 </form>
 
-<% if (stats.length > 0) { %>
+<% if (estadistica.length > 0) { %>
     <table>
         <tr>
             <th>Tipo</th>
             <th>Total ganado</th>
         </tr>
-        <% stats.forEach(s => { %>
+        <% estadistica.forEach(s => { %>
             <tr>
                 <td><%= s.tipo %></td>
                 <td>$<%= s.dinero %></td>
