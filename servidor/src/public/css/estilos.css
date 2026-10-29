@@ -3,7 +3,9 @@ body {
     font-family: Arial;
     background: #f2f2f2;
 }
-
+.menu1{
+    text-align: center;
+}
 .menu {
     background: #333;
     padding: 10px 20px;
@@ -61,4 +63,7 @@ input, select {
 .total {
     font-size: 22px;
     font-weight: bold;
+}
+.Titcliente{
+    text-align: center;
 }

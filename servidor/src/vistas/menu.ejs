@@ -13,7 +13,7 @@
     <a href="/ingresos">Ingresos</a>
     <a href="/salidas">Salidas</a>
     <a href="/tarifas">Tarifas</a>
-    <a href="">Clientes</a>
+    <a href="/clientes">Clientes</a>
     <a href="/busca">Vehículos</a>
     
 </div>
@@ -22,6 +22,28 @@
     <h2>Bienvenido a ESTAC. CONTROL</h2>
     <p>Nicolas Rosales - Taiel Lardapide</p>
     </div>
+<h3>Ingresos de plata por tipo de vehículo</h3>
+
+<form action="/estadisticas" method="POST">
+    Desde: <input type="date" name="desde" value="<%= desde %>">
+    Hasta: <input type="date" name="hasta" value="<%= hasta %>">
+    <input type="submit" value="Ver">
+</form>
+
+<% if (stats.length > 0) { %>
+    <table>
+        <tr>
+            <th>Tipo</th>
+            <th>Total ganado</th>
+        </tr>
+        <% stats.forEach(s => { %>
+            <tr>
+                <td><%= s.tipo %></td>
+                <td>$<%= s.dinero %></td>
+            </tr>
+        <% }) %>
+    </table>
+<% } %>
 </div>
 
 </body>

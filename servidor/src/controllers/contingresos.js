@@ -12,14 +12,20 @@ export const formingreso = async (req, resp) => {
 }
 
 export const nuevoingreso = async (req, resp) => {
-    const { patente, tipo, plaza } = req.body;
-    const bdd = await conectar();
+    const { patente, tipo, plaza, estado } = req.body;
 
-    let insertar = "INSERT INTO ticketsregistros (fecha, fentrada, patente, tipo, plaza) VALUES (CURDATE(), CURTIME(), '" + patente + "', '" + tipo + "', '" + plaza + "');";
-    await bdd.query(insertar);
+    try {
+        const bdd = await conectar();
 
-    let actualizar = "UPDATE plazas SET estado = 'Ocupada' WHERE codigo = '" + plaza + "';";
-    await bdd.query(actualizar);
+        let insertar = "INSERT INTO ticketsregistros (fecha, fentrada, patente, tipo, plaza) VALUES (CURDATE(), CURTIME(), '" + patente + "', '" + tipo + "', '" + plaza + "');";
+        await bdd.query(insertar);
 
-    resp.redirect('/ingresos');
+        let actualizar = "UPDATE plazas SET estado = '" + estado + "' WHERE codigo = '" + plaza + "';";
+        await bdd.query(actualizar);
+
+        resp.redirect('/ingresos');
+    } catch (error) {
+        console.log(error);
+        resp.send('No se pudo registrar el ingreso');
+    }
 }

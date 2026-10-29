@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/estilos.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="menu">
+    <h1>ESTAC. CONTROL</h1>
+        <a href="/">Inicio</a>
+    <a href="/ingresos">Ingresos</a>
+    <a href="/salidas">Salidas</a>
+    <a href="/tarifas">Tarifas</a>
+    <a href="/clientes">Clientes</a>
+    <a href="/busca">Vehículos</a>
+</div>
+<div class="contenido">
+ <h2 class="Titcliente">Clientes mensuales</h2>
+<h3>Registrar cliente</h3>
+<form action="/clientes" method="POST">
+    <input type="text" name="nombre" placeholder="Nombre">
+    <input type="text" name="telefono" placeholder="Teléfono">
+    <input type="text" name="patente" placeholder="Patente">
+    <select name="estado">
+        <option value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
+    </select>
+    <input type="submit" value="Guardar">
+</form>
+<% if (registrado.length > 0) { %>
+    <h3>Cliente registrado</h3>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Patente</th>
+            <th>Suscripción</th>
+        </tr>
+        <% registrado.forEach(c => { %>
+            <tr>
+                <td><%= c.nombre %></td>
+                <td><%= c.telefono %></td>
+                <td><%= c.patente %></td>
+                <td><%= c.estadosuscripcion %></td>
+            </tr>
+        <% }) %>
+    </table>
+<% } %>
+
+<h3>Buscar cliente</h3>
+<form action="/buscarcliente" method="POST">
+    <input type="text" name="patente" placeholder="Patente">
+    <input type="submit" value="Buscar">
+</form>
+
+<% if (buscado.length > 0) { %>
+    <h3>Datos del cliente</h3>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Teléfono</th>
+            <th>Patente</th>
+            <th>Suscripción</th>
+            <th>Acción</th>
+        </tr>
+        <% buscado.forEach(c => { %>
+            <tr>
+                <td><%= c.nombre %></td>
+                <td><%= c.telefono %></td>
+                <td><%= c.patente %></td>
+                <td><%= c.estadosuscripcion %></td>
+                <td><a href="/borrarcliente/<%= c.idclientes %>">Eliminar</a></td>
+            </tr>
+        <% }) %>
+    </table>
+<% } %>
+</div>
+</body>
+</html>
